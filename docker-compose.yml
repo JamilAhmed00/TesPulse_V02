@@ -1,0 +1,54 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: testpulse_postgres
+    environment:
+      POSTGRES_USER: ${DB_USER:-postgres}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-postgres}
+      POSTGRES_DB: ${DB_NAME:-uniscan}
+    ports:
+      - "${DB_PORT:-5432}:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+      - ./scripts/healthcheck.sh:/usr/local/bin/healthcheck.sh
+    healthcheck:
+      test: ["CMD-SHELL", "sh /usr/local/bin/healthcheck.sh"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+      start_period: 10s
+
+  api:
+    build: .
+    container_name: testpulse_api
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      # Database configuration from environment variables
+      # Always use 'postgres' as hostname in Docker (service name)
+      DB_HOST: postgres
+      DB_PORT: ${DB_PORT:-5432}
+      DB_USER: ${DB_USER:-postgres}
+      DB_PASSWORD: ${DB_PASSWORD:-postgres}
+      DB_NAME: ${DB_NAME:-uniscan}
+      # Alternative: can also use DATABASE_URL directly
+      DATABASE_URL: ${DATABASE_URL:-}
+      # Application configuration
+      GEMINI_API_KEY: ${GEMINI_API_KEY}
+      DEBUG: ${DEBUG:-false}
+      SECRET_KEY: ${SECRET_KEY:-your-secret-key-change-this-in-production}
+    ports:
+      - "${API_PORT:-8000}:8000"
+    volumes:
+      - .:/app
+    command: >
+      sh -c "
+        python scripts/wait_for_db.py &&
+        uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+      "
+
+volumes:
+  postgres_data:
+

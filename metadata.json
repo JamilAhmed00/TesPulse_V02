@@ -1,0 +1,5 @@
+{
+  "name": "UniScan: Admission Analyzer",
+  "description": "A powerful AI tool to analyze university admission circulars (PDFs, Images, or Text) and extract structured requirements automatically.",
+  "requestFramePermissions": []
+}
