@@ -3,7 +3,7 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import { CheckCircle2, FileText, Calendar, BookOpen, CreditCard, AlertCircle, ArrowRight, X, Bot, Loader2 } from 'lucide-react';
 import Header from '../components/Header';
 import ApplicationTimeline from '../components/ApplicationTimeline';
-import { studentStorage, applicationStorage, transactionStorage } from '../lib/storage';
+import { studentStorage, applicationStorage, transactionStorage } from '../lib/storage.ts';
 import { mockUniversitiesFull } from '../lib/mockData';
 import { generateCircularSummary, formatCircularSummary } from '../lib/circularSummary';
 import { Student, University, Application } from '../lib/supabase';

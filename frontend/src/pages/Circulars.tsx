@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { FileText, Search } from 'lucide-react';
 import Header from '../components/Header';
 import CircularCard from '../components/CircularCard';
-import { authStorage, applicationStorage } from '../lib/storage';
+import { authStorage, applicationStorage } from '../lib/storage.ts';
 import { mockUniversitiesFull } from '../lib/mockData';
 import { Application } from '../lib/supabase';
 

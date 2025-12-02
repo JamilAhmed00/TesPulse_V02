@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { CheckCircle2, User, LogIn, FileText, Shield, CreditCard, Download, Calendar, ArrowRight, Bot, Loader2 } from 'lucide-react';
 import Header from '../components/Header';
-import { studentStorage, applicationStorage, transactionStorage, notificationStorage } from '../lib/storage';
+import { studentStorage, applicationStorage, transactionStorage, notificationStorage } from '../lib/storage.ts';
 import { mockUniversitiesFull } from '../lib/mockData';
 import { Student, University, Application, Notification } from '../lib/supabase';
 import { downloadAdmissionCard } from '../lib/admissionCardGenerator';

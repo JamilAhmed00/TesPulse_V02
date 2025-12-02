@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { studentStorage, applicationStorage } from '../lib/storage';
+import { studentStorage, applicationStorage } from '../lib/storage.ts';
 import { mockExamResults, mockUniversitiesFull } from '../lib/mockData';
 import { TrendingUp, BarChart3, FileText, BookOpen, Award } from 'lucide-react';
 import Header from '../components/Header';

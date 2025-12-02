@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { Bell, CheckCircle2 } from 'lucide-react';
 import Header from '../components/Header';
 import NotificationCard from '../components/NotificationCard';
-import { authStorage, notificationStorage } from '../lib/storage';
+import { authStorage, notificationStorage } from '../lib/storage.ts';
 import { Notification } from '../lib/supabase';
 
 type FilterType = 'all' | 'circular_scrape' | 'payment' | 'application_status' | 'deadline' | 'manual_reminder' | 'system';

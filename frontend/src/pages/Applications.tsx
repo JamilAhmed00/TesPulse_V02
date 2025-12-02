@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { studentStorage, applicationStorage } from '../lib/storage';
+import { studentStorage, applicationStorage } from '../lib/storage.ts';
 import { mockUniversitiesFull } from '../lib/mockData';
 import { Search, Filter, MapPin, Clock, CheckCircle2, ChevronDown, ChevronUp, Download, FileText, ExternalLink, Bot } from 'lucide-react';
 import Header from '../components/Header';

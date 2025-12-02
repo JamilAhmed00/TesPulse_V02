@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { studentStorage, transactionStorage } from '../lib/storage';
+import { studentStorage, transactionStorage } from '../lib/storage.ts';
 import { Wallet, Plus, TrendingDown, CheckCircle2, Copy } from 'lucide-react';
 import Header from '../components/Header';
 import { Student, Transaction } from '../lib/supabase';

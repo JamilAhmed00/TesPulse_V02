@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { studentStorage, authStorage } from '../lib/storage';
+import { studentStorage, authStorage } from '../lib/storage.ts';
 import { Edit2, Save, X } from 'lucide-react';
 import Header from '../components/Header';
 
